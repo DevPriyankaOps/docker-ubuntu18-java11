@@ -5,7 +5,7 @@ Docker base image of Ubuntu 18.04 to run applications with Java 11
 
 Pulling the image from Docker Hub:
 
-    docker pull docker-ubuntu18-java11
+    docker pull mariazevedo88/docker-ubuntu18-java11
    
 
 Build the image on your on machine:
