@@ -10,11 +10,11 @@ ENV LANG=pt_BR.UTF-8
 ENV JAVA_HOME /usr/java/oracle-java11
 ENV PATH $JAVA_HOME/bin:$PATH
 
-RUN add-apt-repository ppa:linuxuprising/java && \
-    apt-get update && apt-get install -y --no-install-recommends \ 
-    oracle-java11-installer \
+RUN apt-get update && apt-get -y upgrade && apt-get -y install sudo software-properties-common && add-apt-repository ppa:linuxuprising/java
+RUN echo "oracle-java11-installer shared/accepted-oracle-license-v1-2 select true" | sudo debconf-set-selections && \
+    apt-get install -y oracle-java11-installer --no-install-recommends \
     oracle-java11-set-default \
-    freetype \
+    libfreetype6 \
     fontconfig \
     && echo "pt_BR.UTF-8 UTF-8" > /etc/locale.gen \
 	&& locale-gen \
